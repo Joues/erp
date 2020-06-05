@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yihang.serp.mapper.MatInMapper" >
+  <resultMap id="BaseResultMap" type="com.yihang.serp.model.MatIn" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="supplier" property="supplier" jdbcType="INTEGER" />
+    <result column="materiel" property="materiel" jdbcType="INTEGER" />
+    <result column="indate" property="indate" jdbcType="DATE" />
+    <result column="store" property="store" jdbcType="INTEGER" />
+    <result column="storeadress" property="storeadress" jdbcType="VARCHAR" />
+    <result column="incnum" property="incnum" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, supplier, materiel, indate, store, storeadress, incnum, type, name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from mat_in
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from mat_in
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yihang.serp.model.MatIn" >
+    insert into mat_in (id, supplier, materiel, 
+      indate, store, storeadress, 
+      incnum, type, name)
+    values (#{id,jdbcType=INTEGER}, #{supplier,jdbcType=INTEGER}, #{materiel,jdbcType=INTEGER}, 
+      #{indate,jdbcType=DATE}, #{store,jdbcType=INTEGER}, #{storeadress,jdbcType=VARCHAR}, 
+      #{incnum,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yihang.serp.model.MatIn" >
+    insert into mat_in
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="supplier != null" >
+        supplier,
+      </if>
+      <if test="materiel != null" >
+        materiel,
+      </if>
+      <if test="indate != null" >
+        indate,
+      </if>
+      <if test="store != null" >
+        store,
+      </if>
+      <if test="storeadress != null" >
+        storeadress,
+      </if>
+      <if test="incnum != null" >
+        incnum,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="supplier != null" >
+        #{supplier,jdbcType=INTEGER},
+      </if>
+      <if test="materiel != null" >
+        #{materiel,jdbcType=INTEGER},
+      </if>
+      <if test="indate != null" >
+        #{indate,jdbcType=DATE},
+      </if>
+      <if test="store != null" >
+        #{store,jdbcType=INTEGER},
+      </if>
+      <if test="storeadress != null" >
+        #{storeadress,jdbcType=VARCHAR},
+      </if>
+      <if test="incnum != null" >
+        #{incnum,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yihang.serp.model.MatIn" >
+    update mat_in
+    <set >
+      <if test="supplier != null" >
+        supplier = #{supplier,jdbcType=INTEGER},
+      </if>
+      <if test="materiel != null" >
+        materiel = #{materiel,jdbcType=INTEGER},
+      </if>
+      <if test="indate != null" >
+        indate = #{indate,jdbcType=DATE},
+      </if>
+      <if test="store != null" >
+        store = #{store,jdbcType=INTEGER},
+      </if>
+      <if test="storeadress != null" >
+        storeadress = #{storeadress,jdbcType=VARCHAR},
+      </if>
+      <if test="incnum != null" >
+        incnum = #{incnum,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yihang.serp.model.MatIn" >
+    update mat_in
+    set supplier = #{supplier,jdbcType=INTEGER},
+      materiel = #{materiel,jdbcType=INTEGER},
+      indate = #{indate,jdbcType=DATE},
+      store = #{store,jdbcType=INTEGER},
+      storeadress = #{storeadress,jdbcType=VARCHAR},
+      incnum = #{incnum,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <resultMap id="AllMatInInfo" type="com.yihang.serp.model.MatIn" extends="BaseResultMap">
+    <association property="purSuppliers" javaType="com.yihang.serp.model.PurSupplier">
+      <id column="sid" property="id" jdbcType="INTEGER" />
+      <result column="sname" property="supplierName" jdbcType="VARCHAR" />
+    </association>
+    <association property="stores" javaType="com.yihang.serp.model.Store">
+      <id column="rid" property="id" jdbcType="INTEGER" />
+      <result column="rname" property="storeName" jdbcType="VARCHAR" />
+    </association>
+    <association property="materiels" javaType="com.yihang.serp.model.Materiel">
+      <id column="lid" property="id" jdbcType="INTEGER" />
+      <result column="lname" property="materiel" jdbcType="VARCHAR" />
+    </association>
+    <association property="types" javaType="com.yihang.serp.model.Type">
+      <id column="eid" property="id" jdbcType="INTEGER" />
+      <result column="ename" property="typeName" jdbcType="VARCHAR" />
+    </association>
+  </resultMap>
+  <select id="getMatInByPage" resultMap="AllMatInInfo">
+    SELECT i.*, s.`id` AS sid, s.`supplierName` AS sname, l.`id` AS lid, l.`materiel` AS lname,
+    r.`id` AS rid, r.`storeName` AS rname, e.`id` AS eid, e.`typeName` AS ename FROM mat_in i,
+    pur_supplier s, mat_eriel l, store r, TYPE e WHERE i.`supplier` = s.`id` AND i.`type` = e.`id` AND
+    i.`materiel` = l.`id` AND i.`store` = r.`id`
+    <if test="keyword.id !=null">
+      and i.id like concat('%',#{keyword.id},'%')
+    </if>
+    <if test="keyword.materiel !=null">
+      and i.materiel like concat('%',#{keyword.materiel},'%')
+    </if>
+    <if test="keyword.supplier !=null">
+      and i.supplier =#{keyword.supplier}
+    </if>
+    <if test="keyword.type !=null">
+      and i.type =#{keyword.type}
+    </if>
+    <if test="keyword.store !=null">
+      and i.store =#{keyword.store}
+    </if>
+    <if test="dateScope !=null">
+      and i.date between #{dateScope[0]} and #{dateScope[1]}
+    </if>
+    <if test="page !=null and size!=null">
+      limit #{page},#{size}
+    </if>
+  </select>
+  <select id="getTotal" resultType="java.lang.Long">
+    select count(*) from mat_in i
+    <where>
+      <if test="keyword!=null">
+        <if test="keyword.id !=null and keyword.materiel!=''">
+          and i.materiel like concat('%',#{keyword.materiel},'%')
+        </if>
+        <if test="keyword.type !=null">
+          and i.type =#{keyword.type}
+        </if>
+        <if test="keyword.supplier !=null">
+          and i.supplier =#{keyword.supplier}
+        </if>
+        <if test="keyword.store !=null">
+          and i.store =#{keyword.store}
+        </if>
+      </if>
+      <if test="dateScope !=null">
+        and o.date between #{dateScope[0]} and #{dateScope[1]}
+      </if>
+    </where>
+  </select>
+</mapper>

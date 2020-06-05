@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yihang.serp.mapper.PurPriceMapper" >
+  <resultMap id="BaseResultMap" type="com.yihang.serp.model.PurPrice" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="supplier" property="supplier" jdbcType="INTEGER" />
+    <result column="date" property="date" jdbcType="DATE" />
+    <result column="aboutdate" property="aboutdate" jdbcType="DATE" />
+    <result column="price" property="price" jdbcType="VARCHAR" />
+    <result column="tax" property="tax" jdbcType="VARCHAR" />
+    <result column="acount" property="acount" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="amount" property="amount" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, supplier, date, aboutdate, price, tax, acount, state, amount
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from pur_price
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from pur_price
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yihang.serp.model.PurPrice" >
+    insert into pur_price (id, supplier, date, 
+      aboutdate, price, tax, 
+      acount, state, amount
+      )
+    values (#{id,jdbcType=INTEGER}, #{supplier,jdbcType=INTEGER}, #{date,jdbcType=DATE}, 
+      #{aboutdate,jdbcType=DATE}, #{price,jdbcType=VARCHAR}, #{tax,jdbcType=VARCHAR}, 
+      #{acount,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, #{amount,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yihang.serp.model.PurPrice" >
+    insert into pur_price
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="supplier != null" >
+        supplier,
+      </if>
+      <if test="date != null" >
+        date,
+      </if>
+      <if test="aboutdate != null" >
+        aboutdate,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="tax != null" >
+        tax,
+      </if>
+      <if test="acount != null" >
+        acount,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="amount != null" >
+        amount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="supplier != null" >
+        #{supplier,jdbcType=INTEGER},
+      </if>
+      <if test="date != null" >
+        #{date,jdbcType=DATE},
+      </if>
+      <if test="aboutdate != null" >
+        #{aboutdate,jdbcType=DATE},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="tax != null" >
+        #{tax,jdbcType=VARCHAR},
+      </if>
+      <if test="acount != null" >
+        #{acount,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yihang.serp.model.PurPrice" >
+    update pur_price
+    <set >
+      <if test="supplier != null" >
+        supplier = #{supplier,jdbcType=INTEGER},
+      </if>
+      <if test="date != null" >
+        date = #{date,jdbcType=DATE},
+      </if>
+      <if test="aboutdate != null" >
+        aboutdate = #{aboutdate,jdbcType=DATE},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="tax != null" >
+        tax = #{tax,jdbcType=VARCHAR},
+      </if>
+      <if test="acount != null" >
+        acount = #{acount,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="amount != null" >
+        amount = #{amount,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yihang.serp.model.PurPrice" >
+    update pur_price
+    set supplier = #{supplier,jdbcType=INTEGER},
+      date = #{date,jdbcType=DATE},
+      aboutdate = #{aboutdate,jdbcType=DATE},
+      price = #{price,jdbcType=VARCHAR},
+      tax = #{tax,jdbcType=VARCHAR},
+      acount = #{acount,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER},
+      amount = #{amount,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <resultMap id="AllPurPriceInfo" type="com.yihang.serp.model.PurPrice" extends="BaseResultMap">
+    <association property="purSuppliers" javaType="com.yihang.serp.model.PurSupplier">
+      <id column="sid" property="id" jdbcType="INTEGER" />
+      <result column="sname" property="supplierName" jdbcType="VARCHAR" />
+    </association>
+    <association property="states" javaType="com.yihang.serp.model.State">
+      <id column="tid" property="id" jdbcType="INTEGER" />
+      <result column="tname" property="stateName" jdbcType="VARCHAR" />
+    </association>
+  </resultMap>
+
+  <select id="getPurPriceByPage" resultMap="AllPurPriceInfo">
+    SELECT p.*, s.`id` AS sid, s.`supplierName` AS sname, t.`id` AS tid, t.`stateName`
+    AS tname FROM pur_price p, pur_supplier s, state t WHERE p.`supplier` = s.`id` AND
+    p.`state` = t.`id`
+    <if test="keyword.id !=null">
+      and p.id like concat('%',#{keyword.id},'%')
+    </if>
+    <if test="keyword.supplier !=null">
+      and p.supplier = #{keyword.supplier}
+    </if>
+    <if test="keyword.state !=null and keyword.state!=''">
+      and p.state = #{keyword.state}
+    </if>
+    <if test="dateScope !=null">
+      and p.date between #{dateScope[0]} and #{dateScope[1]}
+    </if>
+    <if test="page !=null and size!=null">
+      limit #{page},#{size}
+    </if>
+  </select>
+
+  <select id="getTotal" resultType="java.lang.Long">
+    select count(*) from pur_price p
+    <where>
+      <if test="keyword!=null">
+        <if test="keyword.id !=null">
+          and p.id = #{keyword.id}
+        </if>
+        <if test="keyword.supplier !=null">
+          and p.supplier = #{keyword.supplier}
+        </if>
+        <if test="keyword.state !=null and keyword.state!=''">
+          and p.state = #{keyword.state}
+        </if>
+      </if>
+      <if test="dateScope !=null">
+        and p.date between #{dateScope[0]} and #{dateScope[1]}
+      </if>
+    </where>
+  </select>
+</mapper>

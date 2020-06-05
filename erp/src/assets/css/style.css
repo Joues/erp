@@ -1,0 +1,82 @@
+@charset "utf-8";
+/* CSS Document */
+/* body,p{margin:0;}
+body{height:100vh;background: #f4f2ee;} */
+html, body {
+  height: 100%;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #888;
+}
+
+a:hover {
+  color: #00a8ff;
+  cursor: pointer;
+}
+
+img {
+  vertical-align: middle;
+}
+
+a img, fieldset {
+  border: 0;
+}
+
+i, em {
+  font-style: normal
+}
+
+b, strong, th {
+  font-weight: 100;
+}
+
+input, textarea, select {
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  outline: 0;
+  cursor: pointer;
+}
+
+button:focus {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.btn {
+  width: calc(100% - .54rem);
+  background: #259DFF;
+  font-size: .2rem;
+  line-height: .5rem;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  margin-left: .27rem;
+}
+

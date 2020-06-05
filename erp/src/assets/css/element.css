@@ -1,0 +1,59 @@
+.el-aside {
+}
+
+.el-menu {
+  color: #ffffff;
+  background: #222D32;
+}
+
+.el-menu:hover {
+  background: #2d3436;
+}
+
+.el-submenu {
+  width: 230px;
+  color: #ffffff;
+  background: #222D32;
+}
+
+.el-submenu:hover {
+  color: #b3c0d1;
+  background: #2d3436;
+}
+
+.el-menu-item-group {
+  color: #ffffff;
+  width: 230px;
+  background: #2C3B41;
+}
+
+
+/* 二级导航 */
+
+.el-menu-item-group:hover {
+  color: #b3c0d1;
+  background: #2d3436;
+}
+
+.el-menu-item {
+  color: #b3c0d1;
+  background: #2C3B41;
+}
+
+.el-menu-item:hover {
+  color: #ffffff;
+  background: #B3C0D1;
+}
+
+.el-container {
+  flex: 1;
+  height: 100%;
+  position: relative;
+}
+
+
+/* 多个div属性设置position:relative可以防止多个div互相覆盖问题 */
+
+.el-icon-arrow-right {
+  color: #333;
+}
