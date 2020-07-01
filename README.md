@@ -1,5 +1,5 @@
 
-
+### 物料生产管理系统V1.0
 
 
 ## 项目下载和运行
@@ -21,19 +21,19 @@ cd erp
 - 安装依赖
 
 ```
-yarn install
+npm install
 ```
 
 - 开发模式运行
 
 ```
-yarn run serve
+npm run serve
 ```
 
 - 编译项目
 
 ```
-yarn run build
+npm run build
 ```
 
 ###  2. 后端项目运行
