@@ -1,0 +1,14 @@
+com\yihang\serp\mapper\DepartmentMapper.class
+com\yihang\serp\mapper\MenuMapper.class
+com\yihang\serp\mapper\MatInMapper.class
+com\yihang\serp\mapper\StoreMapper.class
+com\yihang\serp\mapper\MaterielMapper.class
+com\yihang\serp\mapper\MatOutMapper.class
+com\yihang\serp\mapper\PurPriceMapper.class
+com\yihang\serp\mapper\StateMapper.class
+com\yihang\serp\mapper\PurOrderMapper.class
+com\yihang\serp\mapper\RoleMapper.class
+com\yihang\serp\mapper\UsersMapper.class
+com\yihang\serp\mapper\PurSupplierMapper.class
+com\yihang\serp\mapper\TypeMapper.class
+com\yihang\serp\mapper\UsersRoleMapper.class

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yihang.serp.mapper.MaterielMapper" >
+  <resultMap id="BaseResultMap" type="com.yihang.serp.model.Materiel" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="materiel" property="materiel" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, materiel
+  </sql>
+  <select id="getAllMateriel" resultMap="BaseResultMap">
+    select * from mat_eriel;
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from mat_eriel
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from mat_eriel
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yihang.serp.model.Materiel" >
+    insert into mat_eriel (id, materiel)
+    values (#{id,jdbcType=INTEGER}, #{materiel,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yihang.serp.model.Materiel" >
+    insert into mat_eriel
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="materiel != null" >
+        materiel,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="materiel != null" >
+        #{materiel,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yihang.serp.model.Materiel" >
+    update mat_eriel
+    <set >
+      <if test="materiel != null" >
+        materiel = #{materiel,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yihang.serp.model.Materiel" >
+    update mat_eriel
+    set materiel = #{materiel,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

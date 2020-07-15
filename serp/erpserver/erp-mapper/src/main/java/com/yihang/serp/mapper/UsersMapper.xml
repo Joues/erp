@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yihang.serp.mapper.UsersMapper">
+  <resultMap id="BaseResultMap" type="com.yihang.serp.model.Users">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="phone" jdbcType="CHAR" property="phone" />
+    <result column="telephone" jdbcType="VARCHAR" property="telephone" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="enabled" jdbcType="BIT" property="enabled" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="userface" jdbcType="VARCHAR" property="userface" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <resultMap id="UserWithRoles" type="com.yihang.serp.model.Users" extends="BaseResultMap">
+    <collection property="roles" ofType="com.yihang.serp.model.Role">
+      <id column="rid" property="id"/>
+      <result column="rname" property="name"/>
+      <result column="rnameZh" property="nameZh"/>
+    </collection>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, phone, telephone, address, enabled, username, password, userface, remark
+  </sql>
+<!--  <select id="getAllHrsExceptCurrentHr" resultMap="BaseResultMap">-->
+<!--        select * from users where id !=#{id};-->
+<!--    </select>-->
+  <select id="getAllUsers" resultMap="UserWithRoles">
+    SELECT users.id, users.name, users.phone, users.telephone, users.address, users.enabled, users.username,
+    users.userface, users.remark,r.`id` AS rid,r.`name` AS rname,r.`nameZh` AS rnameZh FROM users LEFT JOIN
+    users_role urr ON users.`id`=urr.`usersid` LEFT JOIN role r ON urr.`uid`=r.`id` WHERE users.`id`!=#{id}
+    <if test="keywords!=null">
+    and users.name like concat('%',#{keywords},'%')
+  </if>
+    order by users.id
+  </select>
+  <select id="getUsersRolesById" resultType="com.yihang.serp.model.Role">
+    select r.* from role r,users_role urr where urr.`uid`=r.`id` and urr.`usersid`=#{id}
+  </select>
+  <select id="loadUserByUsername" resultMap="BaseResultMap">
+    select * from users where username=#{username}
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from users
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from users
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yihang.serp.model.Users">
+    insert into users (id, name, phone, 
+      telephone, address, enabled, 
+      username, password, userface, 
+      remark)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{phone,jdbcType=CHAR}, 
+      #{telephone,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{enabled,jdbcType=BIT}, 
+      #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{userface,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yihang.serp.model.Users">
+    insert into users
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="telephone != null">
+        telephone,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="enabled != null">
+        enabled,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="userface != null">
+        userface,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=CHAR},
+      </if>
+      <if test="telephone != null">
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="enabled != null">
+        #{enabled,jdbcType=BIT},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="userface != null">
+        #{userface,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yihang.serp.model.Users">
+    update users
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=CHAR},
+      </if>
+      <if test="telephone != null">
+        telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="enabled != null">
+        enabled = #{enabled,jdbcType=BIT},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="userface != null">
+        userface = #{userface,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yihang.serp.model.Users">
+    update users
+    set name = #{name,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=CHAR},
+      telephone = #{telephone,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      enabled = #{enabled,jdbcType=BIT},
+      username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      userface = #{userface,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

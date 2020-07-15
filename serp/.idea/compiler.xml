@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="erp-web" />
+        <module name="erp-service" />
+        <module name="erp-mapper" />
+        <module name="erp-model" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="erp-mapper" target="1.8" />
+      <module name="erp-model" target="1.8" />
+      <module name="erp-service" target="1.8" />
+      <module name="erp-web" target="1.8" />
+      <module name="erpserver" target="1.8" />
+      <module name="serp" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="erp-mapper" options="-parameters" />
+      <module name="erp-model" options="-parameters" />
+      <module name="erp-service" options="-parameters" />
+      <module name="erp-web" options="-parameters" />
+    </option>
+  </component>
+</project>

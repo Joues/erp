@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yihang.serp.mapper.PurSupplierMapper">
+    <resultMap id="BaseResultMap" type="com.yihang.serp.model.PurSupplier">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="city" property="city" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="phone" property="phone" jdbcType="VARCHAR"/>
+        <result column="yewu" property="yewu" jdbcType="VARCHAR"/>
+        <result column="date" property="date" jdbcType="DATE"/>
+        <result column="others" property="others" jdbcType="VARCHAR"/>
+        <result column="supplierName" property="supplierName" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="getPurSupplierByPage" resultMap="BaseResultMap">
+        select s.* from pur_supplier s
+        <if test="keyword.supplierName != null">
+            where s.supplierName like concat('%',#{keyword.supplierName},'%')
+        </if>
+        <if test="page !=null and size!=null">
+            limit #{page},#{size}
+        </if>
+    </select>
+    <select id="getTotal" resultType="java.lang.Long">
+        select count(*) from pur_supplier s
+        <where>
+            <if test="keyword!=null">
+                <if test="keyword.id !=null and keyword.supplierName!=''">
+                    s.supplierName like concat('%',#{keyword.supplierName},'%')
+                </if>
+            </if>
+        </where>
+    </select>
+
+    <select id="maxId" resultType="java.lang.Integer">
+    select max(id) from pur_supplier
+  </select>
+
+    <sql id="Base_Column_List">
+    id, city, name, phone, yewu, date, others, supplierName
+  </sql>
+    <select id="getAllSuppliers" resultMap="BaseResultMap">
+    select * from pur_supplier
+  </select>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from pur_supplier
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from pur_supplier
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.yihang.serp.model.PurSupplier">
+    insert into pur_supplier (id, city, name, 
+      phone, yewu, date, 
+      others, supplierName)
+    values (#{id,jdbcType=INTEGER}, #{city,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{yewu,jdbcType=VARCHAR}, #{date,jdbcType=DATE},
+      #{others,jdbcType=VARCHAR}, #{supplierName,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.yihang.serp.model.PurSupplier">
+        insert into pur_supplier
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="city != null">
+                city,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="yewu != null">
+                yewu,
+            </if>
+            <if test="date != null">
+                date,
+            </if>
+            <if test="others != null">
+                others,
+            </if>
+            <if test="supplierName != null">
+                supplierName,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="city != null">
+                #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="yewu != null">
+                #{yewu,jdbcType=VARCHAR},
+            </if>
+            <if test="date != null">
+                #{date,jdbcType=DATE},
+            </if>
+            <if test="others != null">
+                #{others,jdbcType=VARCHAR},
+            </if>
+            <if test="supplierName != null">
+                #{supplierName,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.yihang.serp.model.PurSupplier">
+        update pur_supplier
+        <set>
+            <if test="city != null">
+                city = #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                phone = #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="yewu != null">
+                yewu = #{yewu,jdbcType=VARCHAR},
+            </if>
+            <if test="date != null">
+                date = #{date,jdbcType=DATE},
+            </if>
+            <if test="others != null">
+                others = #{others,jdbcType=VARCHAR},
+            </if>
+            <if test="supplierName != null">
+                supplierName = #{supplierName,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.yihang.serp.model.PurSupplier">
+    update pur_supplier
+    set city = #{city,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      yewu = #{yewu,jdbcType=VARCHAR},
+      date = #{date,jdbcType=DATE},
+      others = #{others,jdbcType=VARCHAR},
+      supplierName = #{supplierName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

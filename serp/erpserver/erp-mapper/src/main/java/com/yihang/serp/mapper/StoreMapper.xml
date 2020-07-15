@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yihang.serp.mapper.StoreMapper" >
+  <resultMap id="BaseResultMap" type="com.yihang.serp.model.Store" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="storeName" property="storeName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, storeName
+  </sql>
+  <select id="getAllStores" resultMap="BaseResultMap">
+    select * from store
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from store
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from store
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yihang.serp.model.Store" >
+    insert into store (id, storeName)
+    values (#{id,jdbcType=INTEGER}, #{storeName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yihang.serp.model.Store" >
+    insert into store
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="storeName != null" >
+        storeName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="storeName != null" >
+        #{storeName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yihang.serp.model.Store" >
+    update store
+    <set >
+      <if test="storeName != null" >
+        storeName = #{storeName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yihang.serp.model.Store" >
+    update store
+    set storeName = #{storeName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

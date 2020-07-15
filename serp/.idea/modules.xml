@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/erpserver/erp-mapper/erp-mapper.iml" filepath="$PROJECT_DIR$/erpserver/erp-mapper/erp-mapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/erpserver/erp-model/erp-model.iml" filepath="$PROJECT_DIR$/erpserver/erp-model/erp-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/erpserver/erp-service/erp-service.iml" filepath="$PROJECT_DIR$/erpserver/erp-service/erp-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/erpserver/erp-web/erp-web.iml" filepath="$PROJECT_DIR$/erpserver/erp-web/erp-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/erpserver/erpserver.iml" filepath="$PROJECT_DIR$/erpserver/erpserver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/serp.iml" filepath="$PROJECT_DIR$/.idea/serp.iml" />
+    </modules>
+  </component>
+</project>

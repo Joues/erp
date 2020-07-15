@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yihang.serp.mapper.StateMapper" >
+  <resultMap id="BaseResultMap" type="com.yihang.serp.model.State" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="stateName" property="stateName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, stateName
+  </sql>
+  <select id="getAllStates" resultMap="BaseResultMap">
+    select * from state
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from state
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from state
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yihang.serp.model.State" >
+    insert into state (id, stateName)
+    values (#{id,jdbcType=INTEGER}, #{stateName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yihang.serp.model.State" >
+    insert into state
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="stateName != null" >
+        stateName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="stateName != null" >
+        #{stateName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yihang.serp.model.State" >
+    update state
+    <set >
+      <if test="stateName != null" >
+        stateName = #{stateName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yihang.serp.model.State" >
+    update state
+    set stateName = #{stateName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

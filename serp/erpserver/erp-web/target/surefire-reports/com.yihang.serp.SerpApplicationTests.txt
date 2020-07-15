@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: com.yihang.serp.SerpApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 34.696 s <<< FAILURE! - in com.yihang.serp.SerpApplicationTests
+contextLoads  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flyway' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.flywaydb.core.Flyway]: Factory method 'flyway' threw exception; nested exception is java.lang.IllegalStateException: Cannot find migrations location in: [classpath:db/migration] (please add migrations or check your Flyway configuration)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.flywaydb.core.Flyway]: Factory method 'flyway' threw exception; nested exception is java.lang.IllegalStateException: Cannot find migrations location in: [classpath:db/migration] (please add migrations or check your Flyway configuration)
+Caused by: java.lang.IllegalStateException: Cannot find migrations location in: [classpath:db/migration] (please add migrations or check your Flyway configuration)
+

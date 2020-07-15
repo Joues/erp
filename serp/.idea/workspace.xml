@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="710f6e4d-9cd2-4bee-87e0-1283f5c9c95c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/erpserver/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/SerpApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/erpserver/erp-web/src/main/java/com/yihang/serp/SerpApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/bean/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/erpserver/erp-web/src/main/java/com/yihang/serp/bean/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/erpserver/erp-web/src/main/java/com/yihang/serp/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/config/Swagger2Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/erpserver/erp-web/src/main/java/com/yihang/serp/config/Swagger2Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/controller/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/erpserver/erp-web/src/main/java/com/yihang/serp/controller/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/erpserver/erp-web/src/main/java/com/yihang/serp/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/controller/MatInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/erpserver/erp-web/src/main/java/com/yihang/serp/controller/MatInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/controller/PurOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/erpserver/erp-web/src/main/java/com/yihang/serp/controller/PurOrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/controller/PurPriceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/erpserver/erp-web/src/main/java/com/yihang/serp/controller/PurPriceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/controller/PurSupplierControlller.java" beforeDir="false" afterPath="$PROJECT_DIR$/erpserver/erp-web/src/main/java/com/yihang/serp/controller/PurSupplierControlller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/controller/SystemConfigController.java" beforeDir="false" afterPath="$PROJECT_DIR$/erpserver/erp-web/src/main/java/com/yihang/serp/controller/SystemConfigController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/erpserver/erp-web/src/main/java/com/yihang/serp/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/controller/system/PermissController.java" beforeDir="false" afterPath="$PROJECT_DIR$/erpserver/erp-web/src/main/java/com/yihang/serp/controller/system/PermissController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/controller/system/SystemDepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/erpserver/erp-web/src/main/java/com/yihang/serp/controller/system/SystemDepartmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/controller/system/SystemUsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/erpserver/erp-web/src/main/java/com/yihang/serp/controller/system/SystemUsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/converter/DateConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/erpserver/erp-web/src/main/java/com/yihang/serp/converter/DateConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/exception/CustomExceptionResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/erpserver/erp-web/src/main/java/com/yihang/serp/exception/CustomExceptionResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/erpserver/erp-web/src/main/java/com/yihang/serp/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/DepartmentMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/DepartmentMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/MatInMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/MatInMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/MatOutMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/MatOutMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/MaterielMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/MaterielMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/MenuMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/MenuMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/MenuRoleMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/MenuRoleMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/PurOrderMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/PurOrderMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/PurPriceMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/PurPriceMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/PurSupplierMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/PurSupplierMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/RoleMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/RoleMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/StateMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/StateMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/StoreMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/StoreMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/TypeMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/TypeMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/UsersMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/UsersMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/UsersRoleMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/mapper/UsersRoleMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/model/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/model/Department.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/model/MatIn.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/model/MatOut.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/model/Materiel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/model/Menu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/model/Meta.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/model/PurOrder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/model/PurPrice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/model/PurSupplier.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/model/RespBean.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/model/RespPageBean.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/model/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/model/State.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/model/Store.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/model/Sysmsg.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/model/Type.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/model/Users.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/model/UsersRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/service/DepartmentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/service/MatInService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/service/MaterielService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/service/MenuService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/service/PurOrderService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/service/PurPriceService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/service/RoleService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/service/StateService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/service/StoreService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/service/SupplierService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/service/TypeService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/service/UsersService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/utils/POIUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yihang/serp/utils/UserUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/erpserver/erp-web/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/yihang/serp/SerpApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/erpserver/erp-web/src/test/java/com/yihang/serp/SerpApplicationTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\Win10-Program Files\Maven\apache-maven-3.6.2\local_jar_home" />
+        <option name="mavenHome" value="D:/Win10-Program Files/Maven/apache-maven-3.6.2" />
+        <option name="userSettingsFile" value="C:\Users\Pedro\.m2\aliyun\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1e8OV7AjRl0cIpXv89IMIrU7QZ6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/erpserver/erp-web" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\YihangJou\erp\serp\erpserver\erp-mapper\src\main\java\com\yihang\serp\mapper" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.yihang.serp.exception" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\YihangJou\erp\serp\erpserver\erp-web" />
+      <recent name="E:\YihangJou\erp\serp\erpserver\erp-web\src\main\java\com\yihang\serp\config" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="erp-web" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yihang.serp.SerpApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="erp-web" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="erp-web" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yihang.serp.SerpApplication" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="SHORTEN_COMMAND_LINE" value="MANIFEST" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="710f6e4d-9cd2-4bee-87e0-1283f5c9c95c" name="Default Changelist" comment="" />
+      <created>1593699773350</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1593699773350</updated>
+      <workItem from="1593699777033" duration="3918000" />
+      <workItem from="1593785299584" duration="470000" />
+      <workItem from="1593824596893" duration="15000" />
+      <workItem from="1593921979896" duration="15585000" />
+      <workItem from="1593997614601" duration="45000" />
+      <workItem from="1594817295029" duration="1571000" />
+      <workItem from="1594819504493" duration="5131000" />
+      <workItem from="1594825439908" duration="2670000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="137" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594828767638">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="137" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1594828767638" />
+    <state x="412" y="157" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1593703797820">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="412" y="157" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1366.738@0.0.1366.738" timestamp="1593703797820" />
+    <state x="278" y="291" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1593703547104">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="278" y="291" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.738@0.0.1366.738" timestamp="1593703547104" />
+    <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1593938105756">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1593938105756" />
+    <state width="1323" height="159" key="GridCell.Tab.0.bottom" timestamp="1594827274103">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="159" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1594827274103" />
+    <state width="1323" height="159" key="GridCell.Tab.0.center" timestamp="1594827274102">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="159" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1594827274102" />
+    <state width="1323" height="159" key="GridCell.Tab.0.left" timestamp="1594827274102">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="159" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1594827274102" />
+    <state width="1323" height="159" key="GridCell.Tab.0.right" timestamp="1594827274103">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="159" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1594827274103" />
+    <state width="1323" height="238" key="GridCell.Tab.1.bottom" timestamp="1594826480123">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="238" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1594826480123" />
+    <state width="1323" height="238" key="GridCell.Tab.1.center" timestamp="1594826480123">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="238" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1594826480123" />
+    <state width="1323" height="238" key="GridCell.Tab.1.left" timestamp="1594826480123">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="238" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1594826480123" />
+    <state width="1323" height="238" key="GridCell.Tab.1.right" timestamp="1594826480123">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="238" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1594826480123" />
+    <state width="1323" height="246" key="GridCell.Tab.2.bottom" timestamp="1594825365506">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="246" key="GridCell.Tab.2.bottom/0.0.1366.738@0.0.1366.738" timestamp="1594825365506" />
+    <state width="1323" height="246" key="GridCell.Tab.2.center" timestamp="1594825365505">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="246" key="GridCell.Tab.2.center/0.0.1366.738@0.0.1366.738" timestamp="1594825365505" />
+    <state width="1323" height="246" key="GridCell.Tab.2.left" timestamp="1594825365505">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="246" key="GridCell.Tab.2.left/0.0.1366.738@0.0.1366.738" timestamp="1594825365505" />
+    <state width="1323" height="246" key="GridCell.Tab.2.right" timestamp="1594825365505">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="246" key="GridCell.Tab.2.right/0.0.1366.738@0.0.1366.738" timestamp="1594825365505" />
+    <state x="213" y="23" key="Maven.ArtifactSearchDialog" timestamp="1593957507994">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="213" y="23" key="Maven.ArtifactSearchDialog/0.0.1366.738@0.0.1366.738" timestamp="1593957507994" />
+    <state x="189" y="0" key="SettingsEditor" timestamp="1594826917543">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="189" y="0" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1594826917543" />
+    <state x="57" y="29" key="new project wizard" timestamp="1594819803423">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="57" y="29" key="new project wizard/0.0.1366.738@0.0.1366.738" timestamp="1594819803423" />
+    <state x="305" y="135" width="812" height="678" key="search.everywhere.popup" timestamp="1594824817664">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="305" y="135" width="812" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1594824817664" />
+  </component>
+</project>

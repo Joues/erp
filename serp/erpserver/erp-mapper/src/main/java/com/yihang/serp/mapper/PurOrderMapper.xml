@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yihang.serp.mapper.PurOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.yihang.serp.model.PurOrder" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="oid" property="oid" jdbcType="CHAR" />
+    <result column="wname" property="wname" jdbcType="VARCHAR" />
+    <result column="guige" property="guige" jdbcType="VARCHAR" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="supplier" property="supplier" jdbcType="INTEGER" />
+    <result column="store" property="store" jdbcType="INTEGER" />
+    <result column="price" property="price" jdbcType="CHAR" />
+    <result column="num" property="num" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="date" property="date" jdbcType="DATE" />
+  </resultMap>
+
+  <resultMap id="AllPurOrderInfo" type="com.yihang.serp.model.PurOrder" extends="BaseResultMap">
+    <association property="purSuppliers" javaType="com.yihang.serp.model.PurSupplier">
+      <id column="sid" property="id" jdbcType="INTEGER" />
+      <result column="sname" property="supplierName" jdbcType="VARCHAR" />
+    </association>
+    <association property="stores" javaType="com.yihang.serp.model.Store">
+      <id column="rid" property="id" jdbcType="INTEGER" />
+      <result column="rname" property="storeName" jdbcType="VARCHAR" />
+    </association>
+    <association property="states" javaType="com.yihang.serp.model.State">
+      <id column="tid" property="id" jdbcType="INTEGER" />
+      <result column="tname" property="stateName" jdbcType="VARCHAR" />
+    </association>
+    <association property="types" javaType="com.yihang.serp.model.Type">
+      <id column="eid" property="id" jdbcType="INTEGER" />
+      <result column="ename" property="typeName" jdbcType="VARCHAR" />
+    </association>
+  </resultMap>
+  <select id="getPurOrderByPage" resultMap="AllPurOrderInfo">
+    SELECT o.*, s.`id` AS sid, s.`supplierName` AS sname, t.`id` AS tid, t.`stateName` AS tname,
+    r.`id` AS rid, r.`storeName` AS rname, e.`id` AS eid, e.`typeName` AS ename FROM pur_order o,
+    pur_supplier s, state t, store r, TYPE e WHERE o.`supplier` = s.`id` AND o.`type` = e.`id` AND
+    o.`state` = t.`id` AND o.`store` = r.`id`
+    <if test="keyword.oid !=null">
+      and o.oid like concat('%',#{keyword.oid},'%')
+    </if>
+    <if test="keyword.wname !=null">
+      and o.wname like concat('%',#{keyword.wname},'%')
+    </if>
+    <if test="keyword.supplier !=null">
+      and o.supplier =#{keyword.supplier}
+    </if>
+    <if test="keyword.type !=null">
+      and o.type =#{keyword.type}
+    </if>
+    <if test="keyword.store !=null">
+      and o.store =#{keyword.store}
+    </if>
+    <if test="keyword.state !=null and keyword.state!=''">
+      and o.state =#{keyword.state}
+    </if>
+    <if test="dateScope !=null">
+      and o.date between #{dateScope[0]} and #{dateScope[1]}
+    </if>
+    <if test="page !=null and size!=null">
+      limit #{page},#{size}
+    </if>
+  </select>
+  <select id="getTotal" resultType="java.lang.Long">
+    select count(*) from pur_order o
+    <where>
+      <if test="keyword!=null">
+        <if test="keyword.oid !=null and keyword.wname!=''">
+          and o.wname like concat('%',#{keyword.wname},'%')
+        </if>
+        <if test="keyword.type !=null">
+          and o.type =#{keyword.type}
+        </if>
+        <if test="keyword.supplier !=null">
+          and o.supplier =#{keyword.supplier}
+        </if>
+        <if test="keyword.store !=null">
+          and o.store =#{keyword.store}
+        </if>
+        <if test="keyword.state !=null and keyword.state!=''">
+          and o.state =#{keyword.state}
+        </if>
+      </if>
+      <if test="dateScope !=null">
+        and o.date between #{dateScope[0]} and #{dateScope[1]}
+      </if>
+    </where>
+  </select>
+
+  <select id="maxoid" resultType="java.lang.Integer">
+    select max(oid) from pur_order
+  </select>
+  <sql id="Base_Column_List" >
+    id, oid, wname, guige, unit, type, supplier, store, price, num, state, date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from pur_order
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from pur_order
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yihang.serp.model.PurOrder" >
+    insert into pur_order (id, oid, wname, 
+      guige, unit, type, 
+      supplier, store, price, 
+      num, state, date)
+    values (#{id,jdbcType=INTEGER}, #{oid,jdbcType=VARCHAR}, #{wname,jdbcType=VARCHAR}, 
+      #{guige,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, 
+      #{supplier,jdbcType=INTEGER}, #{store,jdbcType=INTEGER}, #{price,jdbcType=CHAR}, 
+      #{num,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, #{date,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yihang.serp.model.PurOrder" >
+    insert into pur_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="oid != null" >
+        oid,
+      </if>
+      <if test="wname != null" >
+        wname,
+      </if>
+      <if test="guige != null" >
+        guige,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="supplier != null" >
+        supplier,
+      </if>
+      <if test="store != null" >
+        store,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="date != null" >
+        date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="oid != null" >
+        #{oid,jdbcType=CHAR},
+      </if>
+      <if test="wname != null" >
+        #{wname,jdbcType=VARCHAR},
+      </if>
+      <if test="guige != null" >
+        #{guige,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="supplier != null" >
+        #{supplier,jdbcType=INTEGER},
+      </if>
+      <if test="store != null" >
+        #{store,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=CHAR},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="date != null" >
+        #{date,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yihang.serp.model.PurOrder" >
+    update pur_order
+    <set >
+      <if test="oid != null" >
+        oid = #{oid,jdbcType=CHAR},
+      </if>
+      <if test="wname != null" >
+        wname = #{wname,jdbcType=VARCHAR},
+      </if>
+      <if test="guige != null" >
+        guige = #{guige,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="supplier != null" >
+        supplier = #{supplier,jdbcType=INTEGER},
+      </if>
+      <if test="store != null" >
+        store = #{store,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=CHAR},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="date != null" >
+        date = #{date,jdbcType=DATE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yihang.serp.model.PurOrder" >
+    update pur_order
+    set oid = #{oid,jdbcType=CHAR},
+      wname = #{wname,jdbcType=VARCHAR},
+      guige = #{guige,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      supplier = #{supplier,jdbcType=INTEGER},
+      store = #{store,jdbcType=INTEGER},
+      price = #{price,jdbcType=CHAR},
+      num = #{num,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER},
+      date = #{date,jdbcType=DATE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <insert id="addPurs">
+    insert into pur_order (oid, wname,
+    guige, type, supplier, store,
+    num, price, date,
+    state, unit
+    )
+    values
+    <foreach collection="list" separator="," item="pur">
+      (#{pur.oid,jdbcType=CHAR}, #{pur.wname,jdbcType=VARCHAR},
+      #{pur.guige,jdbcType=VARCHAR}, #{pur.type,jdbcType=INTEGER}, #{pur.supplier,jdbcType=INTEGER},
+      #{pur.store,jdbcType=INTEGER},
+      #{pur.num,jdbcType=VARCHAR}, #{pur.price,jdbcType=CHAR}, #{pur.date,jdbcType=DATE},
+      #{pur.state,jdbcType=INTEGER}, #{pur.unit,jdbcType=VARCHAR}
+      )
+    </foreach>
+  </insert>
+</mapper>
