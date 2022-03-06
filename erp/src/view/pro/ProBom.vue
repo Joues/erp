@@ -25,6 +25,8 @@
         stripe
         border
         v-loading="loading"
+        lazy
+        :tree-props="{children: 'children', hasChildren: 'hasChildren'}"
         element-loading-text="努力奔跑中^-^"
         element-loading-spinner="el-icon-loading"
         element-loading-background="rgba(0, 0, 0, 0.8)"
