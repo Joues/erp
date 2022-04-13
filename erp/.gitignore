@@ -14,4 +14,3 @@ yarn-error.log*
 *.sln
 
 package-lock.json
-package.json
