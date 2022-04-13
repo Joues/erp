@@ -22,7 +22,7 @@ public class SerpApplication {
         String port = env.getProperty("server.port");
 //        String path = env.getProperty("server.servlet.context-path");
         log.info("\n----------------------------------------------------------\n\t" +
-                "Application Zblog is running! Access URLs:\n\t" +
+                "Application Serp is running! Access URLs:\n\t" +
                 "Local: \t\thttp://localhost:" + port  + "/\n\t" +
                 "External: \thttp://" + ip + ":" + port  + "/\n\t" +
                 "swagger-ui: \thttp://" + ip + ":" + port  + "/swagger-ui.html\n\t" +
