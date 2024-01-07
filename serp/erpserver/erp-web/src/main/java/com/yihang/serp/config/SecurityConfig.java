@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yihang.serp.model.RespBean;
 import com.yihang.serp.model.Users;
 import com.yihang.serp.service.UsersService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -37,6 +38,7 @@ import java.io.PrintWriter;
  */
 
 @Configuration
+@Slf4j
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     UsersService usersService;
@@ -77,6 +79,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     @Override
                     public void onAuthenticationSuccess(HttpServletRequest req, HttpServletResponse resp, Authentication authentication) throws IOException, ServletException {
                         resp.setContentType("application/json;charset=utf-8");
+                        log.info("登录成功!");
                         PrintWriter out = resp.getWriter();
                         Users user = (Users) authentication.getPrincipal();
                         RespBean ok = RespBean.ok("欢迎您使用物料生产管理系统v1.0！",user);

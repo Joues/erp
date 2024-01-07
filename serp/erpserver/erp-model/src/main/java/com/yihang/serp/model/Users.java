@@ -3,10 +3,11 @@ package com.yihang.serp.model;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
-public class Users implements UserDetails {
+public class Users implements UserDetails, Serializable {
     private Integer id;
 
     private String name;
@@ -26,6 +27,16 @@ public class Users implements UserDetails {
     private String userface;
 
     private String remark;
+
+    private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     private List<Role> roles;
 

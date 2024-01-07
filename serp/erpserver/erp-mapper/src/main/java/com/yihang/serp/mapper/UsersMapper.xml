@@ -12,6 +12,7 @@
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="userface" jdbcType="VARCHAR" property="userface" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
   </resultMap>
   <resultMap id="UserWithRoles" type="com.yihang.serp.model.Users" extends="BaseResultMap">
     <collection property="roles" ofType="com.yihang.serp.model.Role">
@@ -21,14 +22,14 @@
     </collection>
   </resultMap>
   <sql id="Base_Column_List">
-    id, name, phone, telephone, address, enabled, username, password, userface, remark
+    id, name, phone, telephone, address, enabled, username, password, userface, remark, email
   </sql>
 <!--  <select id="getAllHrsExceptCurrentHr" resultMap="BaseResultMap">-->
 <!--        select * from users where id !=#{id};-->
 <!--    </select>-->
   <select id="getAllUsers" resultMap="UserWithRoles">
     SELECT users.id, users.name, users.phone, users.telephone, users.address, users.enabled, users.username,
-    users.userface, users.remark,r.`id` AS rid,r.`name` AS rname,r.`nameZh` AS rnameZh FROM users LEFT JOIN
+    users.userface, users.remark users.email,r.`id` AS rid,r.`name` AS rname,r.`nameZh` AS rnameZh FROM users LEFT JOIN
     users_role urr ON users.`id`=urr.`usersid` LEFT JOIN role r ON urr.`uid`=r.`id` WHERE users.`id`!=#{id}
     <if test="keywords!=null">
     and users.name like concat('%',#{keywords},'%')
@@ -55,7 +56,7 @@
     insert into users (id, name, phone, 
       telephone, address, enabled, 
       username, password, userface, 
-      remark)
+      remark, email)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{phone,jdbcType=CHAR}, 
       #{telephone,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{enabled,jdbcType=BIT}, 
       #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{userface,jdbcType=VARCHAR}, 
@@ -94,6 +95,9 @@
       <if test="remark != null">
         remark,
       </if>
+      <if test="email != null">
+        email,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -125,6 +129,9 @@
       </if>
       <if test="remark != null">
         #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -158,6 +165,9 @@
       <if test="remark != null">
         remark = #{remark,jdbcType=VARCHAR},
       </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -171,7 +181,8 @@
       username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       userface = #{userface,jdbcType=VARCHAR},
-      remark = #{remark,jdbcType=VARCHAR}
+      remark = #{remark,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
